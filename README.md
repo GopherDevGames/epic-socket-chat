@@ -1,35 +1,16 @@
-# vue-socket-chat
+# epic-socket-chat
 
-This template should help get you started developing with Vue 3 in Vite.
+Taki tam se chat w node.js
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Instalacja
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Uruchamianie
 
 ```sh
-npm run dev
+node server.js
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+### server teraz jest dostępny pod adresem https://localhost:8872/
