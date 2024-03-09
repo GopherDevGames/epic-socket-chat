@@ -65,12 +65,23 @@
         margin-bottom: 1.5vh;
         padding: 0.1px;
         padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 12px;
       }
       .message p {
         margin-left: 6%;
         width: max-content;
         max-width: 50vw;
         margin-right: 5vw;
+      }
+      .message img{
+        display: inline-block;
+        height: auto;
+        width: auto;
+        max-height: 35vh;
+        max-width: 30vw;
+        min-height: 15vh;
+        border-radius: 10px;
       }
       .user-message {
         margin-left: auto;
@@ -139,7 +150,7 @@
       }
 
       function send_image(url){
-        socket.emit('send_image', url);
+        socket.emit('SEND_IMAGE', url);
       }
 
       socket.on('ADD_MESSAGE', (message) => {
@@ -147,8 +158,15 @@
         message_container.className = 'message'
         let nickname_object = document.createElement('h3')
         nickname_object.innerText = message[0] + ':'
-        let message_object = document.createElement('p')
-        message_object.innerText = message[1]
+        let message_object
+        if (message[1].startsWith("!!?@!FORCEIMG")){ 
+          message_object = document.createElement('img')
+          message_object.src = message[1].slice(13)
+        }
+        else{
+          message_object = document.createElement('p')
+          message_object.innerText = message[1]
+        }
         message_container.appendChild(nickname_object)
         message_container.appendChild(message_object)
         if (message[0] == nickname) {

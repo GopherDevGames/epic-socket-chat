@@ -48,7 +48,14 @@ io.on('connection', (socket) => {
         let message = [users[socket.id]["nickname"],arg]
         send_to_all(message, true)
     });
-
+    socket.on("SEND_IMAGE", (arg) => {
+        if (!is_socket_valid(socket)){
+            return
+        }
+        let message = [users[socket.id]["nickname"],arg]
+        message[1] = "!!?@!FORCEIMG" + message[1]
+        send_to_all(message, true)
+    });
     socket.on("SEND_PEDNING_MESSAGES", (arg) =>{
         for (let index = 0; index < messages.length; index++) {
             const msg = messages[index];
@@ -106,7 +113,7 @@ function is_socket_valid(socket, include_disconnect = true){
 
 function is_nickname_valid(nickname){
 
-    return true
+    //return true
 
     if (nickname == null){
         return false
